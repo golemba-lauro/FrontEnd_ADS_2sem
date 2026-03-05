@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Material de Estudo: Ponteiros em C</title>
+	
+	<style>
+              html {
+            scroll-behavior: smooth;
+        }
+        
+        	pre {
+            	     background-color: #1e1e1e; 
+                     color: #d4d4d4;            
+            	     padding: 15px;             
+            	     border-radius: 8px;        
+            	     overflow-x: auto;          
+		     box-shadow: 0 4px 6px rgba(0,0,0,0.3); 
+        }
+
+        /* Garantindo a fonte de programação */
+        	code {
+            	     font-family: 'Courier New', Courier, monospace;
+            	     font-size: 16px;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+	<header class="header">
+            <h1>Material de Estudo Digital</h1>
+	    <h2>PONTEIROS EM C</b></h2>
+        </header>
+	
+
+	<nav>
+            <ol>
+        	<li><a href="#enderecos"> Endereços</a></li>
+        	<li><a href="#ponteiros"> Ponteiros</a></li>
+		<li><a href="#tipos"> Tipos de Ponteiros</a></li>
+        	<li><a href="#aplicacao"> Aplicação</a></li>
+        	<li><a href="#aritimetica"> Aritmética de Endereços</a></li>
+		<li><a href="#contato"> Contato</a></li>
+    	   </ol>
+	</nav>
+
+	<div id="main"> <section id="enderecos">
+            <h3>1- ENDEREÇOS:</h3>
+		<p>A memória RAM (= random access memory) de qualquer computador é uma <b><ins>sequência</b></ins> de bytes. A posição (0, 1, 2, 3, etc.) que um byte ocupa na sequência é o endereço (=address) do byte. (É como o endereço de uma casa em uma longa rua que tem casas de um lado só.)</p>
+		<p>Se e é o endereço de um byte então e + 1 é o endereço do byte seguinte. Cada variável de um programa ocupa um certo número de bytes consecutivos na memória do computador.</p>
+		<p>Uma variável do tipo <b><ins>CHAR</b></ins> ocupa 1 byte.</p> 
+		<p>Uma variável do tipo <b><ins>INT</b></ins> ocupa 4 bytes.</p> 
+		<p>Uma variável do tipo <b><ins>DOUBLE</b></ins> ocupa 8 bytes em muitos computadores.</p> 
+		<p>O número exato de bytes de uma variável é dado pelo operador sizeof. A expressão <b><ins><mark>SIZEOF</b></ins></mark> (char), por exemplo, vale 1 em todos os computadores e a expressão sizeof (int) vale 4 em muitos computadores. Cada variável (em particular, cada registro e cada vetor) na memória tem um endereço. Na maioria dos computadores, o endereço de uma variável é o endereço do seu primeiro byte.</p>
+		<p></p>
+		<p>Por exemplo, depois das declarações.</p>
+
+		<pre>
+		   <code>
+  			char c;
+  			int i;
+  			struct {
+    			   int x, y;
+  			} ponto;
+  			int v[4];
+		   </code>
+		</pre>
+
+		<p>as variáveis poderiam ter os seguintes endereços (o exemplo é fictício):</p>
+
+		<pre>
+		   <code>
+  			c 89421
+			i 89422
+			ponto 89426
+			v[0] 89434
+			v[1] 89438
+			v[2] 89442
+		   </code>
+		</pre>
+
+		<p>O endereço de uma variável é dado pelo operador & . Assim, se i é uma variável então &i é o seu endereço. (Não confunda esse uso de & com o operador lógico and, representado
+por && em C.) </p>
+<p>No exemplo acima, &i vale 89422 e &v[3] vale 89446. Outro exemplo: o segundo argumento da função de biblioteca <b><ins>scanf</b></ins> é o endereço da variável que deve receber o valor lido do teclado: </p>
+
+		<pre>
+		   <code>
+  			int i;
+			scanf ("%d", &i);
+		   </code>
+		</pre>
+
+        </section>
+
+	<div id="main"> <section id="ponteiros">
+            <h3>2 - PONTEIROS:</h3>
+
+		<p>Um ponteiro (= apontador = pointer) é um tipo especial de variável que armazena um endereço. Um ponteiro pode ter o valor:</p>
+		<p><b><ins><mark>NULL</b></ins></mark></p>
+		<p>que é um endereço inválido. A macro NULL está definida na interface stdlib.h e seu valor é 0 (zero) na maioria dos computadores.
+Se um ponteiro p armazena o endereço de uma variável i, podemos dizer p aponta para i ou p é o endereço de i. (Em termos um pouco mais abstratos, diz-se que p é uma referência à variável i.) Se um ponteiro p tem valor diferente de NULL então
+		
+		<pre>
+		   <code>
+  			*p
+		   </code>
+		</pre>
+	
+		<p>é o valor da variável apontada por p. (Não confunda esse operador * com o operador de multiplicação!) Por exemplo, se i é uma variável e p vale &i então dizer *p é o mesmo que dizer i.</p>
+		<p>A seguinte figura dá um exemplo. Do lado esquerdo, um ponteiro p, armazenado no endereço 60001, contém o endereço de um inteiro. O lado direito dá uma representação esquemática da situação:</p>
+
+		<img src="https://www.ime.usp.br/~pf/algoritmos/aulas/png-from-tex/ponteiros.png" alt="Ilustração de ponteiros na memória">
+
+	
+            <h3>3 - TIPOS DE PONTEIROS:</h3>
+		<p>Há vários tipos de ponteiros: ponteiros para bytes, ponteiros para inteiros, ponteiros para ponteiros para inteiros, ponteiros para registros, etc.  O computador precisa saber de que tipo de ponteiro você está falando. Para declarar um ponteiro p para um inteiro, escreva</p>
+
+		<pre>
+		   <code>
+  			int *p;
+		   </code>
+		</pre>
+
+		<p>(Há quem prefira escrever <b><ins><mark>int* p.</b></ins></mark>) Para declarar um ponteiro p para um registro reg, diga</p>
+
+		<pre>
+		   <code>
+  			int **r;
+		   </code>
+		</pre>
+
+	<h3>Exemplos:</h3>
+		<p>Suponha que a, b e c são variáveis inteiras e veja um jeito bobo de fazer  c = a+b:</p>
+
+		<pre>
+		   <code>
+  			int *p; // p é um ponteiro para um inteiro
+			int *q; 
+			p = &a; // o valor de p é o endereço de a
+			q = &b; // q aponta para b
+			c = *p + *q;
+		   </code>
+		</pre>
+
+		<p>Outro exemplo bobo:</>
+
+		<pre>
+		   <code>
+  			int *p;  
+			int **r; // ponteiro para ponteiro para inteiro
+			p = &a;  // p aponta para a
+			r = &p;  // r aponta para p e *r aponta para a
+			c = **r + b;
+		   </code>
+		</pre>
+
+	</section>
+
+	<div id="main"> <section id="aplicacao">
+            <h3>4 - APLICAÇÃO:</h3>
+
+		<p>Suponha que precisamos de uma função que troque os valores de duas variáveis inteiras, digamos i e j.  É claro que a função</p>
+
+		<pre>
+		   <code>
+  			void troca (int i, int j) { 
+   			   int temp;
+   			   temp = i; i = j; j = temp;
+			}
+		   </code>
+		</pre>
+
+		<p>não produz o efeito desejado, pois <b><ins>recebe apenas os valores das variáveis</b></ins> e não as variáveis propriamente ditas. A função recebe cópias das variáveis e troca os valores dessas cópias, enquanto as variáveis originais permanecem inalteradas. Para obter o efeito desejado, é preciso passar à função os endereços das variáveis:</p>
+
+		<pre>
+		   <code>
+  			void troca (int *p, int *q)
+			{
+			  int temp;
+			  temp = *p; *p = *q; *q = temp;
+			}
+		   </code>
+		</pre>
+
+		<p>Para aplicar essa função às variáveis i e j basta dizer troca (&i, &j) ou então</p>
+
+		<pre>
+		   <code>
+  			int *p, *q;
+			p = &i; q = &j;
+			troca (p, q);
+		   </code>
+		</pre>
+
+	</section>
+
+	<div id="main"> <section id="aritimetica">
+            <h3>5 - ARITIMÉTICA DE ENDEREÇOS:</h3>
+
+		<p>Os elementos de qualquer vetor são armazenados em bytes consecutivos da memória do computador. Se cada elemento do vetor ocupa s bytes, a diferença entre os endereços de dois elementos consecutivos é s. Mas o compilador ajusta os detalhes internos de modo a criar a ilusão de que a diferença entre os endereços de dois elementos consecutivos é 1,qualquer que seja o valor de s. Por exemplo, depois da declaração</p>
+
+		<pre>
+		   <code>
+  			int *v;
+			v = malloc (100 * sizeof (int));
+		   </code>
+		</pre>
+
+		<p>o endereço do primeiro elemento do vetor é v, o endereço do segundo elemento é v+1, o endereço do terceiro elemento é v+2, etc. Se i é uma variável do tipo int então</p>
+
+		<pre>
+		   <code>
+  			v + i
+		   </code>
+		</pre>
+
+		<p>é o endereço do (i+1)-ésimo elemento do vetor. As expressões v + i e &v[i] têm exatamente o mesmo valor e portanto as atribuições</p>
+
+		<pre>
+		   <code>
+  			*(v+i) = 789;
+			v[i] = 789;
+		   </code>
+		</pre>
+
+		<p>têm o mesmo efeito. Portanto, qualquer dos dois fragmentos de código abaixo pode ser usado para preencher o vetor v:</p>
+
+		<pre>
+		   <code>
+  			for (i = 0; i < 100; ++i) scanf ("%d", &v[i]);
+			for (i = 0; i < 100; ++i) scanf ("%d", v + i);
+		   </code>
+		</pre>
+
+		<p>Todas essas considerações também valem se o vetor for alocado estaticamente (ou seja, antes que o programa comece a ser executado) por uma declaração como</p>
+
+		<pre>
+		   <code>
+  			int v[100];
+		   </code>
+		</pre>
+
+		<p>mas nesse caso, v é uma espécie de ponteiro constante, cujo valor não pode ser alterado.</p>
+
+	</section>
+
+	<section id="contato">
+        	<form>
+            	   <fieldset>
+                      <legend>💻 Envie sua Dúvida sobre Ponteiros</legend>
+                
+                	<label for="nome">Nome do Aluno:</label>
+                	<input type="text" id="nome" name="nome"><br><br>
+
+                	<label>Tamanho da variável (sizeof):</label><br>
+                	<input type="radio" id="char" name="tamanho" value="1"> <label for="char">1 Byte (char)</label>
+                	<input type="radio" id="int" name="tamanho" value="4"> <label for="int">4 Bytes (int)</label><br><br>
+
+                	<label>Tópicos de Maior Dificuldade:</label><br>
+                	<input type="checkbox" id="enderecos"> <label for="enderecos">Endereços na Memória</label>
+                	<input type="checkbox" id="tipos"> <label for="tipos">Tipos de Ponteiros</label>
+                	<input type="checkbox" id="aplicacao"> <label for="aplicacao">Aplicação em Funções</label>
+                	<input type="checkbox" id="aritmetica"> <label for="aritmetica">Aritmética de Endereços</label><br><br>
+
+                	<label for="operador-input">Operador com Dúvida:</label><br>
+                	<input list="operadores-list" id="operador-input" name="Operadores">
+                	<datalist id="operadores-list">
+                    	   <option value="& (Endereço da variável)">
+                    	   <option value="* (Conteúdo apontado)">
+                    	   <option value="sizeof (Tamanho em bytes)">
+                    	   <option value="NULL (Ponteiro nulo)">
+                	</datalist><br><br>
+                
+                	<button type="submit">Enviar Dúvida</button>
+            	  </fieldset>
+        	</form>
+	</section>
+
+
+
+
+
+</body>
+</html>
