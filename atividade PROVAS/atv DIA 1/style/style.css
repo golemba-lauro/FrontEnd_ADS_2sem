@@ -1,0 +1,98 @@
+
+html, body {
+    height: 100%;
+}
+
+.bg-copa {
+    background-image: url('../img/FIFA-World-Cup-26.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7f6; 
+    color: #333333; 
+    line-height: 1.6;
+}
+
+header {
+    background-color: #00563B; 
+    color: #ffffff;
+    text-align: center; 
+    padding: 2rem 0;
+    margin-bottom: 20px;
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+nav h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #555555;
+}
+
+nav ul {
+    list-style: none; 
+}
+
+nav li {
+    display: inline-block; 
+    margin: 0 15px; 
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #00563B;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    color: #008a5e;
+}
+
+.secao-info {
+    background-color: #ffffff; 
+    border-radius: 12px; 
+    padding: 25px; 
+    margin: 0 auto 30px auto; 
+    max-width: 800px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
+}
+
+.secao-info h2 {
+    font-size: 1.8rem; 
+    font-weight: 900; 
+    color: #222222;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #00563B; 
+    padding-bottom: 5px;
+}
+
+.secao-info p {
+    font-size: 1.05rem;
+    color: #444444;
+    text-align: justify; 
+}

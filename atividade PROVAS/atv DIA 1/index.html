@@ -1,0 +1,100 @@
+<!-- Crie uma página HTML completa contendo a estrutura básica do documento (<html>, <head>, <title> e <body>).
+Dentro da tag <body>, utilize as tags <a> | <p> | <nav> | <section> de estruturação de conteúdo, para organizar as informações do Descritivo de apoio abaixo como uma página da WEB.
+
+A página deve conter obrigatoriamente:
+As tags solicitadas;
+A navegação entre as seções da página pela barra de navegação <nav> ;
+Uma organização clara e estruturada do conteúdo utilizando as tags solicitadas.
+ -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa do Mundo 2026 - Informações</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <header>
+        <h1>Informações sobre a Copa Do Mundo</h1>
+    </header>
+
+    <nav>
+        <h2>Menu de Navegação</h2>
+        <ul>
+            <li><a href="#organizacao">Organização e Sedes</a></li>
+            <li><a href="#formato">Novo Formato</a></li>
+            <li><a href="#expectativas">Expectativas e Impacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="organizacao" class="secao-info">
+            <h2>Organização e Sedes</h2>
+            <p>A Copa do Mundo FIFA de 2026 será a primeira edição realizada em três países: 
+                Estados Unidos, Canadá e México. Essa será também a maior Copa da história em 
+                número de cidades-sede, com partidas distribuídas por diversas regiões da América 
+                do Norte, ampliando o alcance global do torneio.</p>
+        </section>
+
+        <section id="formato" class="secao-info">
+            <h2>Novo Formato</h2>
+            <p>O torneio contará com 48 seleções, em vez das tradicionais 32. 
+                As equipes serão divididas em grupos, aumentando o número total de jogos e 
+                dando mais oportunidades para países de diferentes continentes participarem. 
+                Essa mudança foi promovida pela FIFA para tornar a competição mais inclusiva e 
+                competitiva.</p>
+        </section>
+
+        <section id="expectativas" class="secao-info">
+            <h2>Expectativas e Impacto</h2>
+            <p>A edição de 2026 promete ser uma das mais assistidas da história, com grande impacto econômico e 
+                cultural nos países-sede. Além disso, seleções tradicionais e emergentes devem protagonizar jogos de alto nível, 
+                aumentando ainda mais o interesse global pelo futebol e fortalecendo o esporte em novas regiões.</p>
+        </section>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <button onclick="mostrarTabela()" 
+                style="padding: 12px 24px; font-size: 1.1rem; 
+                background-color: #00563B; color: white; 
+                border: none; border-radius: 8px; cursor: pointer;">
+                
+                Mostrar Tabela de Jogos
+            </button>
+        </div>
+    </main>
+
+  <div id="img" style="text-align: center;"></div>
+    
+  <div class="bg-copa">
+        <div class="d-flex flex-column align-items-center">       
+            <div class="card" style="width: 22rem;" aria-hidden="true">
+            <img src="img/img_.svg" class="card-img-top" alt="Placeholder Copa">
+            
+                <div class="card-body"> 
+                    <h5 id="Nome" class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                        <span id="Rank" class="badge text-bg-secondary">-</span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span id="Data_Nas" class="placeholder col-4"></span><br>
+                        <span id="Alutra" class="placeholder col-4"></span><br>
+                        <span id="Posição " class="placeholder col-6"></span><br>
+                    </p>
+
+                
+                </div>
+            </div>
+                <button type="button" onclick="revelar()" class="btn btn-primary" style="margin: 10px; padding: 10px;">
+                Revelar 
+                </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

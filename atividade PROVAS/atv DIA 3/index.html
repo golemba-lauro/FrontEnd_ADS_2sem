@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa do Mundo 2026 - Informações Oficiais</title>
+    
+    <link href="css/bootstrap.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Informações sobre a Copa Do Mundo</h1>
+    </header>
+
+    <nav>
+        <a href="#organizacao">🌍 Organização e Sedes</a> | 
+        <a href="#formato">⚽ Novo Formato</a> | 
+        <a href="#impacto">🏆 Expectativas e Impacto</a>
+    </nav>
+
+    <main>
+        <section id="organizacao" class="conteudo-copa">
+            <h2>🌍 Organização e Sedes</h2>
+            <p>A Copa do Mundo FIFA de 2026 será a primeira edição realizada em três países: 
+                Estados Unidos, Canadá e México. Essa será também a maior Copa da história em 
+                número de cidades-sede, com partidas distribuídas por diversas regiões da América 
+                do Norte, ampliando o alcance global do torneio.</p>
+        </section>
+
+        <section id="formato" class="conteudo-copa">
+            <h2>⚽ Novo Formato</h2>
+            <p>O torneio contará com 48 seleções, em vez das tradicionais 32. As equipes serão 
+                divididas em grupos, aumentando o número total de jogos e dando mais oportunidades 
+                para países de diferentes continentes participarem. Essa mudança foi promovida pela
+                FIFA para tornar a competição mais inclusiva e competitiva.</p>
+        </section>
+
+        <section id="impacto" class="conteudo-copa">
+            <h2>🏆 Expectativas e Impacto</h2>
+            <p>A edição de 2026 promete ser uma das mais assistidas da história, com grande impacto
+                econômico e cultural nos países-sede. Além disso, seleções tradicionais e emergentes
+                 devem protagonizar jogos de alto nível, aumentando ainda mais o interesse global 
+                 pelo futebol e fortalecendo o esporte em novas regiões.</p>
+        </section>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <button type="button" onclick="mostrarTabela()" style="padding: 12px 24px; font-size: 1.1rem; 
+            background-color: #1a472a; color: white; border: none; border-radius: 8px; cursor: pointer;
+             font-weight: bold;">
+                Mostrar Tabela de Jogos
+            </button>
+        </div>
+
+        <div id="espaco-tabela" style="text-align: center; margin-bottom: 40px;"></div>
+
+        <div class="bg-copa" style="margin-top: 50px; padding: 40px 0; border-radius: 15px;">
+            <div class="d-flex flex-column align-items-center">       
+                <div class="card" style="width: 22rem;" aria-hidden="true">
+                    <img src="img/img_.svg" class="card-img-top" alt="Placeholder Copa">
+                
+                    <div class="card-body"> 
+                        <h5 id="Nome" class="card-title placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                            <span id="Rank" class="badge text-bg-secondary">-</span>
+                        </h5>
+                        <p class="card-text placeholder-glow">
+                            <span id="Data_Nas" class="placeholder col-4"></span><br>
+                            <span id="Alutra" class="placeholder col-4"></span><br>
+                            <span id="Posição " class="placeholder col-6"></span><br>
+                        </p>
+                    </div>
+                    <div id="novo"></div>
+                </div>
+                
+                <button type="button" onclick="revelar()" class="btn btn-primary" style="margin: 20px; padding: 10px 30px; font-weight: bold;">
+                    Revelar 
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
